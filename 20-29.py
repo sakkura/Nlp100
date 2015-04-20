@@ -2,6 +2,7 @@
 import json
 import gzip
 import sys
+import re
 
 
 if (sys.stdout.encoding is None):
@@ -26,7 +27,10 @@ for country,text in article.items():
 
 #22. カテゴリ名の抽出
 #記事のカテゴリ名を（行単位ではなく名前で）抽出せよ．
-
+for country,text in article.items():
+	pattern = r"\[\[Category:(.+)\]\]"
+	r = re.compile(pattern)
+	match = r.findall(text)
 
 
 #23. セクション構造
